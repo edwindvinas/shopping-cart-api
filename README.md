@@ -1,7 +1,7 @@
 # shopping-cart-api
 Golang shopping cart with REST API and support for rules on discounts, promos, bundles, and comes with Swagger documentations
 
-![enter image description here](http://lh3.googleusercontent.com/HVtYL9NyyPxsXggIV3s0JcF851OAtpODZtaobNfp425PTJQJx_qUKEEGkWQCm1dZrqGwLXoycKnhhyM9l7kGQwrP47EP7Q)
+![enter image description here](http://lh3.googleusercontent.com/HVtYL9NyyPxsXggIV3s0JcF851OAtpODZtaobNfp425PTJQJx_qUKEEGkWQCm1dZrqGwLXoycKnhhyM9l7kGQwrP47EP7Q=s900)
 
 ## FEATURES
 ### Works as a REST API for Shopping Cart (backend)
