@@ -93,16 +93,19 @@ The shopping cart api can be deployed to your appengine project in less 10 minut
 * Execute the updategae.sh script
 
 ### Install script
-
+	
+	cd shopping-cart-api/cart
     ./updategae.sh
 
 ### Visit your appengine project (demo is shown below)
 * https://ulapph-cloud-sca.appspot.com 
 
-### View Swagger API Documentation
+### View Swagger API Documentation (demo is shown below)
 * https://ulapph-cloud-sca.appspot.com/api/
 
 ## AUTOMATED TESTING VIA GO TEST AND CURL
+
+The good thing about shopping-cart-api is ease of testing the API endpoints. The included test scenarios uses HTTP testing tools to automatically call the API such as posting new products, simulating addition of items to cart and then processing the cart as if user is checking out. This is a very nice to have feature for anything that involves API development. Remember, we can get tired of doing CURL executions but if we can bundle these tests into automated tests, life is easier! Good thing Golang has built-in testing tool called "go test" and the https://github.com/gavv/httpexpect testing package also make it easy to call and analyze API responses.
 
 #### Rules for BuyThreePayTwoOnly
 ##### Scenario: A 3 for 2 deal on Unlimited 1GB Sims. So for example, if you buy 3 Unlimited 1GB Sims, you will pay the price of 2 only for the first month.
