@@ -308,5 +308,7 @@ The good thing about shopping-cart-api is ease of testing the API endpoints. The
 * Git Bash for Windows
 * https://stackedit.io/editor for creating this markdown for Github!
 
-
 ## Thank you!
+
+## Release History
+[2017-Jan-22] Initial version released
