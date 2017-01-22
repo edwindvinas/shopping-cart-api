@@ -1,0 +1,528 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is API server for the Shopping Cart.  You can find out more at [http://www.shopping.com](http://www.shopping.com).",
+        "version": "0.0.1",
+        "title": "SHOPPING CART REST API",
+        "termsOfService": "http://www.shopping.com/terms/",
+        "contact": {
+            "email": "api-team@www.shopping.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "ulapph-cloud-sca.appspot.com",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "products",
+            "description": "Products Management",
+            "externalDocs": {
+                "description": "Find out more about products",
+                "url": "http://www.shopping.com/api-ref/products"
+            }
+        },
+        {
+            "name": "cart",
+            "description": "Cart Management",
+            "externalDocs": {
+                "description": "Find out more about cart",
+                "url": "http://www.shopping.com/api-ref/cart"
+            }
+        },
+        {
+            "name": "rules",
+            "description": "Rules Management",
+            "externalDocs": {
+                "description": "Find out more about rules",
+                "url": "http://www.shopping.com/api-ref/rules"
+            }
+        },
+        {
+            "name": "totals",
+            "description": "Totals Management",
+            "externalDocs": {
+                "description": "Find out more about totals",
+                "url": "http://www.shopping.com/api-ref/rules"
+            }
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/products": {
+            "post": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "addProducts() - Adds new product to the catalog",
+                "description": "This adds a new product item on the catalog",
+                "operationId": "addProducts",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The product object to be added to catalog",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Product item added to catalog"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            },
+            "get": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "getProducts() - Get list of products from catalog",
+                "description": "This gets all available products from catalog",
+                "operationId": "getProducts",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The product object to be retrieved",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Products found from catalog",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "deleteProducts() - Delete product(s) from catalog",
+                "description": "This deletes product(s) from catalog",
+                "operationId": "deleteProducts",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The product object to be deleted",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Products deleted from catalog",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/cart": {
+            "post": {
+                "tags": [
+                    "cart"
+                ],
+                "summary": "addItemToCart() - Adds new item to the cart",
+                "description": "This adds a new item to the cart",
+                "operationId": "addItemToCart",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The item(s) to be added to the cart",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Cart"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Item added to cart",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            },
+            "get": {
+                "tags": [
+                    "cart"
+                ],
+                "summary": "getItemsFromCart() - Get list of items currently in cart",
+                "description": "This gets all available items in cart",
+                "operationId": "getItemsFromCart",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The product object to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cart items found",
+                        "schema": {
+                            "$ref": "#/definitions/Cart"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "cart"
+                ],
+                "summary": "deleteItemsFromCart() - Delete item(s) currently in cart",
+                "description": "This delete item(s) in cart",
+                "operationId": "deleteItemsFromCart",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The item(s) to be deleted from cart",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Cart"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cart items deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Cart"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/rules": {
+            "post": {
+                "tags": [
+                    "rules"
+                ],
+                "summary": "addRules() - Adds new rule to the catalog",
+                "description": "This adds a new rule item on the catalog",
+                "operationId": "addRules",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The rule object to be added to catalog",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Rules"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Product item added to catalog"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            },
+            "get": {
+                "tags": [
+                    "rules"
+                ],
+                "summary": "getRules() - Get list of rules from catalog",
+                "description": "This gets all available rules from catalog",
+                "operationId": "getRules",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The rule object to be retrieved",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Rules"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rules found from catalog",
+                        "schema": {
+                            "$ref": "#/definitions/Rules"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "rules"
+                ],
+                "summary": "deleteRules() - Delete rule(s) from catalog",
+                "description": "This deletes rule(s) from catalog",
+                "operationId": "deleteRules",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The rule object to be deleted",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Rules"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rules deleted from catalog",
+                        "schema": {
+                            "$ref": "#/definitions/Rules"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/process": {
+            "get": {
+                "tags": [
+                    "totals"
+                ],
+                "summary": "computeCartTotal() - Compute total of all items in cart",
+                "description": "This computes total amount of all items in cart",
+                "operationId": "computeCartTotal",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "promo_code",
+                        "description": "The optional promo code to be considered in computing totals",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cart processed successfully",
+                        "schema": {
+                            "$ref": "#/definitions/CartProc"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "securityDefinitions": {
+        "server_token": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        },
+        "client_id": {
+            "type": "apiKey",
+            "name": "ClientID",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "Products": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "integer",
+                    "format": "float64"
+                }
+            },
+            "xml": {
+                "name": "Products"
+            }
+        },
+        "Cart": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "integer",
+                    "format": "float64"
+                },
+                "items": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "status": {
+                    "type": "boolean"
+                }
+            },
+            "xml": {
+                "name": "Cart"
+            }
+        },
+        "CartProc": {
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "integer",
+                    "format": "float64"
+                },
+                "rules": {
+                    "type": "string"
+                },
+                "current": {
+                    "type": "object",
+					"schema": {
+						"$ref": "#/definitions/Cart"
+					}					
+                }
+            },
+            "xml": {
+                "name": "CartProc"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about our Shopping Cart service.",
+        "url": "http://www.shopping.com"
+    }
+}
